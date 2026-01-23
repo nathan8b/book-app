@@ -16,7 +16,16 @@ function App() {
   return (
     <div>
         <h1>Book Review App</h1>
-        <p>Books will appear here...</p>
+        <div className='book-list'>
+          {books.map(book => (
+            <div key={book.id} className='book-card'>
+              <h2>{book.title}</h2>
+              <p><strong>Author:</strong> {book.author}</p>
+              {book.description && <p>{book.description}</p>}
+              {book.isbn && <p><strong>ISBN:</strong> {book.isbn}</p>}
+            </div>
+          ))}
+        </div>
     </div>
   )
 }
