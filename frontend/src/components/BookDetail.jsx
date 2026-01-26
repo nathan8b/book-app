@@ -19,12 +19,23 @@ function BookDetail() {
 
     return (
         <div>
-            <Link to='/'>Back to Books</Link>
-            <h1>{book.title}</h1>
-            <h2>by {book.author}</h2>
-            {book.description && <p>{book.description}</p>}
-            {book.isbn && <p><strong>ISBN:</strong> {book.isbn}</p>}
-            {book.pub_date && <p><strong>Published:</strong> {book.pub_date}</p>}
+            <div className='book-info'>
+                <Link to='/'>Back to Books</Link>
+                <h1>{book.title}</h1>
+                <h2>by {book.author}</h2>
+                {book.description && <p>{book.description}</p>}
+                {book.isbn && <p><strong>ISBN:</strong> {book.isbn}</p>}
+                {book.pub_date && <p><strong>Published:</strong> {book.pub_date}</p>}
+            </div>
+            <div className='book-reviews'>
+                {book.reviews.map(review => (
+                    <div className='review'>
+                        <p><strong>{review.reviewer_name} </strong>{new Date(review.create_date).toLocaleDateString()}</p>
+                        <p>{review.review_text}</p>
+                        <p>{review.rating} stars</p>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
