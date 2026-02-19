@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/BookList.css'
 
 function BookList() {
   const [books, setBooks] = useState([])

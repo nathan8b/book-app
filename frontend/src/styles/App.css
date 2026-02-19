@@ -1,0 +1,28 @@
+.App {
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 70px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #1a1a1a;
+  padding: 0.75rem 1.5rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+    width: clamp(300px, 30%, 500px);
+}
