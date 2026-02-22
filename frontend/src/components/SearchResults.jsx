@@ -18,7 +18,22 @@ function SearchResults() {
         .catch(error => console.error('Search error:', error))
     }, [query])
 
+    if (!books) {
+        return <div>Loading...</div>
+    }
 
+    return (
+        <div className="results-container">
+            {books.map(book => (
+                <div className="results-book-card" key={book.id}>
+                    <h2>{book.volumeInfo.title}</h2>
+                    {book.volumeInfo.subtitle && <p>{book.volumeInfo.subtitle}</p>}
+                    <p>by <strong>{book.volumeInfo.authors.join(', ')}</strong></p>
+                </div>
+            ))}
+
+        </div>
+    )
 
 }
 
