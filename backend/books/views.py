@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Book, Review
-from .serializers import BookSerializer, ReviewSerializer
+from .models import Book
+from .serializers import BookSerializer
 from rest_framework.response import Response
 
 # Create your views here.
@@ -18,9 +18,3 @@ class BookViewSet(viewsets.ModelViewSet):
                       'pub_date': data['pub_date']}
         )
         return Response(BookSerializer(obj).data)
-
-
-
-class ReviewViewSet(viewsets.ModelViewSet):
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer

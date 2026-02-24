@@ -23,3 +23,7 @@ class ShelfEntry(models.Model):
     status = models.CharField(max_length=4, choices=STATUS_CHOICES, default='WANT')
     rating = models.IntegerField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(10)])
     review = models.TextField(blank=True, null=True)
+    want_date = models.DateField(auto_now_add=True)
+    curr_date = models.DateField(null=True, blank=True)
+    read_date = models.DateField(null=True, blank=True)
+    review_date = models.DateField(null=True, blank=True)
