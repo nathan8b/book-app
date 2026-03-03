@@ -92,11 +92,11 @@ function BookDetail() {
                 </form>
             </div>
             <div className='review-list'>
-                {book.reviews.map(review => (
+                {book.shelf_entries.map(entry => (
                     <div className='review-card'>
-                        <p><strong>{review.reviewer_name} </strong>{new Date(review.create_date).toLocaleDateString()}</p>
-                        <p>{review.review_text}</p>
-                        <p>{review.rating} stars</p>
+                        <p><strong>{entry.user.username} </strong>{new Date(entry.review_date).toLocaleDateString()}</p>
+                        <p>{entry.review}</p>
+                        {entry.rating && <p>{entry.rating} / 10</p>}
                     </div>
                 ))}
             </div>

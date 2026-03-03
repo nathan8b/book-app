@@ -23,7 +23,7 @@ class ShelfEntryViewSet(viewsets.ModelViewSet):
         elif data['status'] == 'READ':
             data['read_date'] = timezone.localdate()
 
-        if instance.review == "" and data['review'] != None:
+        if not instance.review and data['review'] != None:
             data['review_date'] = timezone.localdate()
 
         serializer = ShelfEntrySerializer(instance, data=data)
